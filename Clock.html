@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        #box{
+            height: 300px;
+            width: 900px;
+            margin: 50px auto;
+
+        }
+        .a{
+            background-color: white;
+            height:250px;
+            width: 250px;
+            float: left;
+            margin: 25px;
+            border: 30px groove red;
+            box-sizing: border-box;     /* box sizing--> border-box se border inset apply hoga jissse height and width pr effect nhi hoga*/
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 10px black inset;
+            font-size: 80px;
+            text-align: center;
+            line-height:190px ; /* because border inside apply hai due to border-box isliye border ki height inside hi hai so 300-30*2 karenge */
+            color: red;
+            font-family: impact;
+        }
+        h1{
+            color: red;
+            text-align: center;
+            font-size: 70px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <h1>DIGITAL CLOCK</h1>
+        <div id="h" class="a">HH</div>
+        <div id="m" class="a">MM</div>
+        <div id="s" class="a">SS</div>
+    </div>
+   <script>
+
+    
+    setInterval(() => {         
+    const d = new Date();
+    const hh= document.querySelector("#h");
+    const mm = document.querySelector("#m");
+    const ss = document.querySelector("#s")
+
+    hh.innerText = d.getHours()
+    mm.innerText = d.getMinutes()
+    ss.innerText = d.getSeconds()
+
+    if(d.getHours > "12"){
+        hh.innerText = (d.getHours()-12 )+"-PM"
+    }else{
+        hh.innerText = d.getHours()+"AM"
+    }
+    }, 1000);
+  
+    // const d = new Date()
+    // console.log(`${d.getDate()}-${d.getMonth()+1}-${d.getFullYear()}`);
+    // console.log(`${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`)
+   </script> 
+</body>
+</html>
